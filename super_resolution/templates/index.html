@@ -1,0 +1,22 @@
+<!-- super_resolution_app/templates/super_resolution_app/index.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Super Resolution</title>
+</head>
+<body>
+    <h1>Super Resolution</h1>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="file" name="image">
+        <button type="submit">Upload Image</button>
+    </form>
+    {% if super_resolved_image %}
+    <h2>Super Resolved Image:</h2>
+    <img src="{{ MEDIA_URL }}super_resolved_image.jpg" alt="Super Resolved Image">
+    {% endif %}
+</body>
+</html>
